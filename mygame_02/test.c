@@ -784,119 +784,119 @@
 //	return 0;
 //}
 
-int cmp_int(const void* e1, const void* e2)
-{
-	return *(int*)e1 - *(int*)e2;	//升序
-	//return *(int*)e2 - *(int*)e1;	//降序
-}
-
-
-
-struct Stu {
-	char name[20];
-	int age;
-};
-
-int cmp_stu_by_name(const void* e1,const void* e2)
-{
-	return strcmp(((struct Stu*)e1)->name, ((struct Stu*)e2)->name);
-}
-
-int cmp_stu_by_age(const void* e1, const void* e2)
-{
-
-	return ((struct Stu*)e1)->age - ((struct Stu*)e2)->age;
-}
-
-void my_printf(struct Stu* s, int sz)
-{
-	int i = 0;
-	for (i = 0; i < sz; i++)
-	{
-		printf("%s ", s[i].name);
-		printf("%d \n", s[i].age);
-	}
-
-}
-
-void Swap(char* buf1, char* buf2, int width)
-{
-	int i = 0;
-	for ( i = 0; i < width; i++)
-	{
-		char tmp = *buf1;
-		*buf1 = *buf2;
-		*buf2 = tmp;
-		buf1++;
-		buf2++;
-	}
-}
-
-void my_qsort(void* base, int sz, int width, int (*cmp)(const void* e1, const void* e2))
-{
-	int i = 0;
-	int flag = 1;	//是否发生过交换
-	for ( i = 0; i < sz-1; i++)		//趟数
-	{
-		int j = 0;
-		for ( j = 0; j < sz-1-i; j++)	//一趟要交换的次数
-		{
-			if (cmp((char*)base + j * width, (char*)base + (j + 1) * width)>0)
-			{
-				Swap((char*)base + j * width, (char*)base + (j + 1) * width, width);
-				flag = 0;		//交换了
-			}
-		}
-		if (flag == 1)
-			break;
-	}
-}
-
-void test1()
-{
-	int arr[] = { 9,8,7,6,5,4,3,2,1 };
-	int sz = sizeof(arr) / sizeof(arr[0]);
-	qsort(arr, sz, sizeof(arr[0]), cmp_int);
-	int i = 0;
-	for (i = 0; i < sz; i++)
-	{
-		printf("%d ", arr[i]);
-	}
-	printf("\n");
-}
-
-void test2()		//qsort 排序
-{
-	struct Stu s[] = { {"zhangsan",70},{"lisi",40},{"wangwu",30} };
-	int sz = sizeof(s) / sizeof(s[0]);
-	qsort(s, sz, sizeof(s[0]), cmp_stu_by_name);
-	my_printf(s, sz);
-	qsort(s, sz, sizeof(s[0]), cmp_stu_by_age);
-	my_printf(s, sz);
-}
-
-void test3()		//my_qsort 排序
-{
-	struct Stu s[] = { {"zhangsan",70},{"lisi",40},{"wangwu",30} };
-	int sz = sizeof(s) / sizeof(s[0]);
-	my_qsort(s, sz, sizeof(s[0]), cmp_stu_by_name);
-	my_printf(s, sz);
-	my_qsort(s, sz, sizeof(s[0]), cmp_stu_by_age);
-	my_printf(s, sz);
-}
-
-void test4()	//排序数字
-{
-	int arr[] = { 9,8,7,6,5,4,3,2,1,45,88,666,1245 };
-	int sz = sizeof(arr) / sizeof(arr[0]);
-	my_qsort(arr, sz, sizeof(arr[0]), cmp_int);
-	int i = 0;
-	for (i = 0; i < sz; i++)
-	{
-		printf("%d ", arr[i]);
-	}
-}
-
+//int cmp_int(const void* e1, const void* e2)
+//{
+//	return *(int*)e1 - *(int*)e2;	//升序
+//	//return *(int*)e2 - *(int*)e1;	//降序
+//}
+//
+//
+//
+//struct Stu {
+//	char name[20];
+//	int age;
+//};
+//
+//int cmp_stu_by_name(const void* e1,const void* e2)
+//{
+//	return strcmp(((struct Stu*)e1)->name, ((struct Stu*)e2)->name);
+//}
+//
+//int cmp_stu_by_age(const void* e1, const void* e2)
+//{
+//
+//	return ((struct Stu*)e1)->age - ((struct Stu*)e2)->age;
+//}
+//
+//void my_printf(struct Stu* s, int sz)
+//{
+//	int i = 0;
+//	for (i = 0; i < sz; i++)
+//	{
+//		printf("%s ", s[i].name);
+//		printf("%d \n", s[i].age);
+//	}
+//
+//}
+//
+//void Swap(char* buf1, char* buf2, int width)
+//{
+//	int i = 0;
+//	for ( i = 0; i < width; i++)
+//	{
+//		char tmp = *buf1;
+//		*buf1 = *buf2;
+//		*buf2 = tmp;
+//		buf1++;
+//		buf2++;
+//	}
+//}
+//
+//void my_qsort(void* base, int sz, int width, int (*cmp)(const void* e1, const void* e2))
+//{
+//	int i = 0;
+//	int flag = 1;	//是否发生过交换
+//	for ( i = 0; i < sz-1; i++)		//趟数
+//	{
+//		int j = 0;
+//		for ( j = 0; j < sz-1-i; j++)	//一趟要交换的次数
+//		{
+//			if (cmp((char*)base + j * width, (char*)base + (j + 1) * width)>0)
+//			{
+//				Swap((char*)base + j * width, (char*)base + (j + 1) * width, width);
+//				flag = 0;		//交换了
+//			}
+//		}
+//		if (flag == 1)
+//			break;
+//	}
+//}
+//
+//void test1()
+//{
+//	int arr[] = { 9,8,7,6,5,4,3,2,1 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	qsort(arr, sz, sizeof(arr[0]), cmp_int);
+//	int i = 0;
+//	for (i = 0; i < sz; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	printf("\n");
+//}
+//
+//void test2()		//qsort 排序
+//{
+//	struct Stu s[] = { {"zhangsan",70},{"lisi",40},{"wangwu",30} };
+//	int sz = sizeof(s) / sizeof(s[0]);
+//	qsort(s, sz, sizeof(s[0]), cmp_stu_by_name);
+//	my_printf(s, sz);
+//	qsort(s, sz, sizeof(s[0]), cmp_stu_by_age);
+//	my_printf(s, sz);
+//}
+//
+//void test3()		//my_qsort 排序
+//{
+//	struct Stu s[] = { {"zhangsan",70},{"lisi",40},{"wangwu",30} };
+//	int sz = sizeof(s) / sizeof(s[0]);
+//	my_qsort(s, sz, sizeof(s[0]), cmp_stu_by_name);
+//	my_printf(s, sz);
+//	my_qsort(s, sz, sizeof(s[0]), cmp_stu_by_age);
+//	my_printf(s, sz);
+//}
+//
+//void test4()	//排序数字
+//{
+//	int arr[] = { 9,8,7,6,5,4,3,2,1,45,88,666,1245 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	my_qsort(arr, sz, sizeof(arr[0]), cmp_int);
+//	int i = 0;
+//	for (i = 0; i < sz; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//}
+//
 //int main()
 //{
 //	test1();
@@ -906,3 +906,58 @@ void test4()	//排序数字
 //	return 0;
 //}
 
+//int main()
+//{
+//	char email[] = "3442261673@qq.com";
+//	char substr[] = "3442261673";
+//	char substr2[] = "qq.com";
+//	/*char* ret = strstr(email, substr);*/
+//	char* ret = strstr(email, substr2);
+//	if (ret == NULL)
+//	{
+//		printf("没找到相同的字符~~~\n");
+//	}
+//	else
+//	{
+//		printf("%s\n", ret);
+//	}
+//	return 0;
+//}
+
+//#include <errno.h>
+//#include <string.h>
+//int main()
+//{
+//	/*printf("%s\n", strerror(0));
+//	printf("%s\n", strerror(1));
+//	printf("%s\n", strerror(2));
+//	printf("%s\n", strerror(3));
+//	printf("%s\n", strerror(4));
+//	printf("%s\n", strerror(100));*/
+//
+//	FILE* pf = fopen("D:\\VS\\VSXM\\study\\game\\mygame_02\\minghao.txt", "r");
+//
+//	if (pf==NULL)
+//	{
+//		printf("%s\n", strerror(errno));
+//		return 1;
+//
+//	}
+//	else
+//	{
+//
+//		
+//	}
+//	return 0;
+//
+//}
+
+#include <ctype.h>
+int main()
+{
+	char str1[] = "shsjsjsjs";
+	printf("%c\n", tolower('n'));
+	printf("%c\n", toupper('n'));
+	return 0;
+
+}
