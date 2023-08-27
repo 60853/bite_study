@@ -952,12 +952,25 @@
 //
 //}
 
-#include <ctype.h>
+//#include <ctype.h>
+//int main()
+//{
+//	char str1[] = "shsjsjsjs";
+//	printf("%c\n", tolower('n'));
+//	printf("%c\n", toupper('n'));
+//	return 0;
+//
+//}
+
 int main()
 {
-	char str1[] = "shsjsjsjs";
-	printf("%c\n", tolower('n'));
-	printf("%c\n", toupper('n'));
+	int arr1[] = { 1,2,3,4 };
+	int arr2[4] = { 0 };
+	memcpy(arr2, arr1, 16);
+	int sz = sizeof(arr2) / sizeof(arr2[0]);
+	for (int i = 0; i < sz; i++)
+	{
+		printf("%d ", arr2[i]);
+	}
 	return 0;
-
 }
