@@ -962,15 +962,74 @@
 //
 //}
 
+//int main()
+//{
+//	int arr1[] = { 1,2,3,4 };
+//	int arr2[4] = { 0 };
+//	memcpy(arr2, arr1, 16);
+//	int sz = sizeof(arr2) / sizeof(arr2[0]);
+//	for (int i = 0; i < sz; i++)
+//	{
+//		printf("%d ", arr2[i]);
+//	}
+//	return 0;
+//}
+
+//int check_sys()
+//{
+//	union
+//	{
+//		char c;
+//		int i;
+//	}u;
+//	u.i = 1;
+//	return u.c;
+//}
+//
+//int main()
+//{
+//	int ret = check_sys();
+//	if (1 == ret)
+//	{
+//		printf("小端\n");
+//	}
+//	else
+//	{
+//		printf("大端\n");
+//	}
+//	return 0;
+//}
+
+//动态内存开辟
+//malloc 
+//calloc  void* calloc(int num, int size)
+//calloc会自动初始化数组
+//realloc  void* realloc(int ptr, int size)
+//realloc会把之前的数据拷贝找到充足内存后返回起始地址
 int main()
 {
-	int arr1[] = { 1,2,3,4 };
-	int arr2[4] = { 0 };
-	memcpy(arr2, arr1, 16);
-	int sz = sizeof(arr2) / sizeof(arr2[0]);
-	for (int i = 0; i < sz; i++)
+	int* p = (int*)malloc(40);
+	if (p == NULL)
 	{
-		printf("%d ", arr2[i]);
+		printf("%s\n", strerror(errno));
+		return 1;
 	}
+
+	free(p);
+	p = NULL;
+
+	int* p1 = (int*)calloc(10, sizeof(int));
+	if (p1 == NULL)
+	{
+		printf("%s\n", strerror(errno));
+		return 1;
+	}
+	int i = 0;
+	for ( i = 0; i < 10; i++)
+	{
+		printf("%d ", *(p1 + i));
+	}
+	free(p);
+	p = NULL;
 	return 0;
 }
