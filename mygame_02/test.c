@@ -1006,30 +1006,111 @@
 //calloc会自动初始化数组
 //realloc  void* realloc(int ptr, int size)
 //realloc会把之前的数据拷贝找到充足内存后返回起始地址
+//int main()
+//{
+//	int* p = (int*)malloc(40);
+//	if (p == NULL)
+//	{
+//		printf("%s\n", strerror(errno));
+//		return 1;
+//	}
+//
+//	free(p);
+//	p = NULL;
+//
+//	int* p1 = (int*)calloc(10, sizeof(int));
+//	if (p1 == NULL)
+//	{
+//		printf("%s\n", strerror(errno));
+//		return 1;
+//	}
+//	int i = 0;
+//	for ( i = 0; i < 10; i++)
+//	{
+//		printf("%d ", *(p1 + i));
+//	}
+//	free(p);
+//	p = NULL;
+//	return 0;
+//}
+
+//文件的读写操作
+
+
+//#include <errno.h>
+//
+//int main()
+//{
+//	FILE* pf = fopen("minghao.txt", "r");
+//	//文件指针为空
+//	if (pf == NULL)
+//	{
+//		printf("%s\n", strerror(errno));
+//		return 1;
+//	}
+//	//文件指针不为空
+//	//进行文件操作
+//
+//
+//	//关闭文件
+//	fclose(pf);
+//	pf = NULL;
+//
+//	return 0;
+//}
+
+//fputc 写入一个字符
+//fgetc 读取一个字符
+//fputs 写入一行字符
+//fgets 读取一行字符
+
+
+
+int WriteFile(FILE* pf)
+{
+	if (pf == NULL)
+	{
+		printf("%s\n", strerror(errno));
+		return 1;
+	}
+
+	char i = 0;
+	for (i = 'a'; i <= 'z'; i++)
+	{
+		fputc(i, pf);
+	}
+	return 0;
+}
+
+int ReadFile(FILE* pf)
+{
+	if (pf == NULL)
+	{
+		printf("%s\n", strerror(errno));
+		return 1;
+	}
+	char ch = 0;
+	while ((ch = fgetc(pf)) != EOF)
+	{
+		printf("%c ", ch);
+	}
+
+	fclose(pf);
+	pf = NULL;
+
+	return 0;
+}
+
 int main()
 {
-	int* p = (int*)malloc(40);
-	if (p == NULL)
-	{
-		printf("%s\n", strerror(errno));
-		return 1;
-	}
+	FILE* pf = fopen("minghao.txt", "w");
+	WriteFile(pf);
+	fclose(pf);
+	pf = NULL;
 
-	free(p);
-	p = NULL;
-
-	int* p1 = (int*)calloc(10, sizeof(int));
-	if (p1 == NULL)
-	{
-		printf("%s\n", strerror(errno));
-		return 1;
-	}
-	int i = 0;
-	for ( i = 0; i < 10; i++)
-	{
-		printf("%d ", *(p1 + i));
-	}
-	free(p);
-	p = NULL;
+	FILE* pf2 = fopen("minghao.txt", "r");
+	ReadFile(pf2);
+	fclose(pf2);
+	pf2 = NULL;
 	return 0;
 }
