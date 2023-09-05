@@ -1066,51 +1066,97 @@
 
 
 
-int WriteFile(FILE* pf)
-{
-	if (pf == NULL)
-	{
-		printf("%s\n", strerror(errno));
-		return 1;
-	}
+//int WriteFile(FILE* pf)
+//{
+//	if (pf == NULL)
+//	{
+//		printf("%s\n", strerror(errno));
+//		return 1;
+//	}
+//
+//	char i = 0;
+//	for (i = 'a'; i <= 'z'; i++)
+//	{
+//		fputc(i, pf);
+//	}
+//	return 0;
+//}
+//
+//int ReadFile(FILE* pf)
+//{
+//	if (pf == NULL)
+//	{
+//		printf("%s\n", strerror(errno));
+//		return 1;
+//	}
+//	char ch = 0;
+//	while ((ch = fgetc(pf)) != EOF)
+//	{
+//		printf("%c ", ch);
+//	}
+//
+//	fclose(pf);
+//	pf = NULL;
+//
+//	return 0;
+//}
+//
+//int main()
+//{
+//	FILE* pf = fopen("minghao.txt", "w");
+//	WriteFile(pf);
+//	fclose(pf);
+//	pf = NULL;
+//
+//	FILE* pf2 = fopen("minghao.txt", "r");
+//	ReadFile(pf2);
+//	fclose(pf2);
+//	pf2 = NULL;
+//	return 0;
+//}
 
-	char i = 0;
-	for (i = 'a'; i <= 'z'; i++)
-	{
-		fputc(i, pf);
-	}
-	return 0;
-}
+//ÎÄ¼þµÄÔ¤±àÒë
 
-int ReadFile(FILE* pf)
-{
-	if (pf == NULL)
-	{
-		printf("%s\n", strerror(errno));
-		return 1;
-	}
-	char ch = 0;
-	while ((ch = fgetc(pf)) != EOF)
-	{
-		printf("%c ", ch);
-	}
+//int main()
+//{
+//	FILE* pfWrite = fopen("log.txt", "w");
+//	if (pfWrite == NULL)
+//	{
+//		perror("fopen");
+//		return EXIT_FAILURE;
+//	}
+//
+//	int i = 0;
+//	for ( i = 0; i < 10; i++)
+//	{
+//		fprintf(pfWrite,"file:%s line:%d data:%s time:%s i=%d\n", __FILE__, __LINE__, __DATE__, __TIME__, i);
+//	}
+//	fclose(pfWrite);
+//	pfWrite = NULL;
+//
+//	return 0;
+//}
 
-	fclose(pf);
-	pf = NULL;
+//ºê
+//#define SQUARE(X) ((X)*(X))
+//
+//int main()
+//{
+//	int ret = SQUARE(5 + 1);
+//	printf("%d\n", ret);
+//
+//	return 0;
+//}
 
-	return 0;
-}
-
+#define PRINTF(N) printf("The value of "#N" is %d\n", N)
 int main()
 {
-	FILE* pf = fopen("minghao.txt", "w");
-	WriteFile(pf);
-	fclose(pf);
-	pf = NULL;
+	int a = 10;
+	PRINTF(a);
 
-	FILE* pf2 = fopen("minghao.txt", "r");
-	ReadFile(pf2);
-	fclose(pf2);
-	pf2 = NULL;
+	int b = 20;
+	PRINTF(b);
+
 	return 0;
 }
+
