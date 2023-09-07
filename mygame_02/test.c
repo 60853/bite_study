@@ -1148,15 +1148,15 @@
 //	return 0;
 //}
 
-#define PRINTF(N) printf("The value of "#N" is %d\n", N)
-int main()
-{
-	int a = 10;
-	PRINTF(a);
-
-	int b = 20;
-	PRINTF(b);
-
-	return 0;
-}
+//#define PRINTF(N) printf("The value of "#N" is %d\n", N)
+//int main()
+//{
+//	int a = 10;
+//	PRINTF(a);
+//
+//	int b = 20;
+//	PRINTF(b);
+//
+//	return 0;
+//}
 
