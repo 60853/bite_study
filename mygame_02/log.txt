@@ -1,0 +1,10 @@
+file:D:\VS\VSXM\study\game\mygame_02\test.c line:1132 data:Sep  4 2023 time:22:17:50 i=0
+file:D:\VS\VSXM\study\game\mygame_02\test.c line:1132 data:Sep  4 2023 time:22:17:50 i=1
+file:D:\VS\VSXM\study\game\mygame_02\test.c line:1132 data:Sep  4 2023 time:22:17:50 i=2
+file:D:\VS\VSXM\study\game\mygame_02\test.c line:1132 data:Sep  4 2023 time:22:17:50 i=3
+file:D:\VS\VSXM\study\game\mygame_02\test.c line:1132 data:Sep  4 2023 time:22:17:50 i=4
+file:D:\VS\VSXM\study\game\mygame_02\test.c line:1132 data:Sep  4 2023 time:22:17:50 i=5
+file:D:\VS\VSXM\study\game\mygame_02\test.c line:1132 data:Sep  4 2023 time:22:17:50 i=6
+file:D:\VS\VSXM\study\game\mygame_02\test.c line:1132 data:Sep  4 2023 time:22:17:50 i=7
+file:D:\VS\VSXM\study\game\mygame_02\test.c line:1132 data:Sep  4 2023 time:22:17:50 i=8
+file:D:\VS\VSXM\study\game\mygame_02\test.c line:1132 data:Sep  4 2023 time:22:17:50 i=9
