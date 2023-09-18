@@ -18,7 +18,7 @@ public class DrawCircle extends JFrame{ //JFrame 对应窗口，可以理解为�
         //把面板放入画框中
         this.add(mp);
         //设置窗口大小
-        this.setSize(1000,1000);
+        this.setSize(500,400);
         //当点击窗口红叉退出程序
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);//可以显示
@@ -46,12 +46,12 @@ class MyPanel extends JPanel {
         //g.setColor(Color.red);
         //g.fillOval(10,10,100,100);
         //获取图片资源
-//        Image image = Toolkit.getDefaultToolkit().getImage(Panel.class.getResource("01.png"));
-//        g.drawImage(image,10,10,175,221,this);
+        Image image = Toolkit.getDefaultToolkit().getImage(MyPanel.class.getResource("/01.png"));
+        g.drawImage(image,10,10,175,221,this);
         //画字符
-        g.setColor(Color.blue);
-        g.setFont(new Font("宋体",Font.BOLD,50));
-        //左下角
-        g.drawString("陈明皓是个小黑子",100,100);
+//        g.setColor(Color.blue);
+//        g.setFont(new Font("宋体",Font.BOLD,50));
+//        //左下角
+//        g.drawString("陈明皓是个小黑子",100,100);
     }
 }

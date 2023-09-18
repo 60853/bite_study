@@ -6,10 +6,10 @@ public class MyTankGame02 extends JFrame {//窗口
 
     //定义MyPanel
     MyPanel mp;
+
     public static void main(String[] args) {
 
     MyTankGame02 myTankGame01 =new MyTankGame02();
-
     }
     public MyTankGame02(){
         mp=new MyPanel();
@@ -21,3 +21,5 @@ public class MyTankGame02 extends JFrame {//窗口
 
     }
 }
+
+

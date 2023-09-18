@@ -10,7 +10,7 @@ public class Shot implements Runnable {
     int x;  //子弹x坐标
     int y;  //子弹y坐标
     int direct = 0; //子弹方向
-    int speed = 2;  //子弹速度
+    int speed = 6;  //子弹速度
     Boolean isLive = true;  //子弹是否还存活
 
     public Boolean getLive() {

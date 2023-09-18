@@ -17,7 +17,7 @@ public class MyTankGame04 extends JFrame {//窗口
         Thread thread = new Thread(mp);
         thread.start();
         this.add(mp);//把面板(就是游戏的绘图区)
-        this.setSize(1000,750);
+        this.setSize(1200,1000);
         this.addKeyListener(mp);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);

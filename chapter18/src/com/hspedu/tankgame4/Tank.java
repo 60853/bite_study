@@ -4,7 +4,8 @@ public class Tank {
     private int x;  //坦克横坐标
     private int y;  //坦克纵坐标
     private int direct; //坦克方向 0上 1右 2下 3左
-
+    private int speed = 1;
+    Boolean isLive = true;
     public int getSpeed() {
         return speed;
     }
@@ -13,7 +14,7 @@ public class Tank {
         this.speed = speed;
     }
 
-    private int speed = 1;
+
 
     public Tank(int x, int y) {
         this.x = x;
